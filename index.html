@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e51c23">
+
+  <title>FASTFOOD | Premium Food Delivery</title>
+
+  <link rel="stylesheet" href="./style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+  <div class="logo">
+    FAST<span>FOOD</span> 🍔
+  </div>
+
+  <nav>
+    <a href="#home">Bosh sahifa</a>
+    <a href="#menu">Menyu</a>
+    <a href="#promo">Aksiyalar</a>
+    <a href="#favorites">Sevimlilar ❤️</a>
+    <a href="#cart">Savatcha 🛒</a>
+    <a href="#profile">Profil</a>
+  </nav>
+
+  <select id="language" onchange="changeLanguage(this.value)">
+    <option value="uz">🇺🇿 UZ</option>
+    <option value="ru">🇷🇺 RU</option>
+    <option value="en">🇬🇧 EN</option>
+  </select>
+</header>
+
+
+<!-- HERO VIDEO -->
+
+<section class="hero" id="home">
+
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="food-video.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <span class="hero-label">🔥 ENG MAZALI FASTFOOD</span>
+
+    <h1>
+      Mazali taomlar
+      <span>FASTFOOD</span>
+      bilan!
+    </h1>
+
+    <p>
+      Sevimli taomingizni tanlang.
+      Biz uni eshigingizgacha yetkazamiz!
+    </p>
+
+    <a href="#menu">
+      <button class="primary">
+        Hozir buyurtma berish →
+      </button>
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- PROMOTION -->
+
+<section class="promo" id="promo">
+
+  <div class="promo-content">
+
+    <span>🎁 MAXSUS AKSIYA</span>
+
+    <h2>3 + 1 BONUS!</h2>
+
+    <p>
+      3 ta lavash xarid qiling,
+      4-lavash BEPUL!
+    </p>
+
+    <h3>💧 1 DONA SUV HAM SOVG'A!</h3>
+
+    <a href="#menu">
+      <button class="primary">
+        Aksiyadan foydalanish
+      </button>
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<section class="section">
+
+  <h2>🔎 Taom qidirish</h2>
+
+  <input
+    type="search"
+    id="searchInput"
+    class="search-box"
+    placeholder="Masalan: Lavash, Burger, Pizza..."
+    oninput="searchProducts(this.value)"
+  >
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="section" id="menu">
+
+  <h2>🍔 Bizning menyu</h2>
+
+  <div class="categories" id="categories"></div>
+
+  <div class="products" id="products"></div>
+
+</section>
+
+
+<!-- SPECIAL OFFERS -->
+
+<section class="section">
+
+  <h2>🔥 Maxsus takliflar</h2>
+
+  <div class="products">
+
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600"
+        alt="Burger"
+      >
+
+      <div class="card-content">
+        <h3>Cheeseburger</h3>
+        <p>Maxsus chegirma!</p>
+        <div class="price">35 000 so'm</div>
+        <button class="add" onclick="addToCart(4)">
+          Buyurtma berish
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600"
+        alt="Pizza"
+      >
+
+      <div class="card-content">
+        <h3>Maxsus pizza</h3>
+        <p>Bugungi taklif!</p>
+        <div class="price">65 000 so'm</div>
+        <button class="add" onclick="addToCart(6)">
+          Buyurtma berish
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FAVORITES -->
+
+<section class="section" id="favorites">
+
+  <h2>❤️ Sevimli taomlar</h2>
+
+  <div class="products" id="favoriteItems"></div>
+
+</section>
+
+
+<!-- SHOPPING CART -->
+
+<section class="section" id="cart">
+
+  <h2>🛒 Savatchangiz</h2>
+
+  <div class="cart">
+
+    <div id="cartItems"></div>
+
+    <div id="bonus"></div>
+
+    <div id="total" class="total">
+      Jami: 0 so'm
+    </div>
+
+    <button class="checkout" onclick="checkout()">
+      Buyurtmani rasmiylashtirish →
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- CUSTOMER PROFILE -->
+
+<section class="section" id="profile">
+
+  <h2>👤 Shaxsiy kabinet</h2>
+
+  <div class="profile-card">
+
+    <input
+      id="customerName"
+      type="text"
+      placeholder="Ismingiz"
+    >
+
+    <input
+      id="customerPhone"
+      type="tel"
+      placeholder="Telefon raqamingiz"
+    >
+
+    <input
+      id="customerAddress"
+      type="text"
+      placeholder="Yetkazib berish manzili"
+    >
+
+    <button class="checkout" onclick="saveProfile()">
+      Profilni saqlash
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- BONUS POINTS -->
+
+<section class="section">
+
+  <h2>🎁 Bonus hisobingiz</h2>
+
+  <div class="profile-card">
+
+    <h3 id="bonusPoints">0 ball</h3>
+
+    <p>Har buyurtmada bonuslar to'plang!</p>
+
+    <button class="primary" onclick="usePoints()">
+      Bonuslardan foydalanish
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- PROMO CODE -->
+
+<section class="section">
+
+  <h2>🎟 Promo-kod</h2>
+
+  <input
+    id="promoCode"
+    class="search-box"
+    placeholder="PROMO KODNI KIRITING"
+  >
+
+  <button class="primary" onclick="applyPromo()">
+    Qo'llash
+  </button>
+
+  <p id="promoMessage"></p>
+
+</section>
+
+
+<!-- ORDER TRACKING -->
+
+<section class="section" id="tracking">
+
+  <h2>🛵 Buyurtmani kuzatish</h2>
+
+  <div class="profile-card">
+
+    <div id="trackingStatus">
+      Hozircha faol buyurtma yo'q.
+    </div>
+
+    <div class="progress-track">
+      <div id="progressBar"></div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ORDER HISTORY -->
+
+<section class="section" id="history">
+
+  <h2>📦 Buyurtmalar tarixi</h2>
+
+  <div id="orderHistory"></div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <h2>FASTFOOD 🍔</h2>
+
+  <p>Biz bilan har doim mazali!</p>
+
+  <p>Tezkor yetkazib berish va ajoyib ta'm!</p>
+
+  <p>© 2026 FASTFOOD. All rights reserved.</p>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="./i.js"></script>
+
+</body>
+</html>
